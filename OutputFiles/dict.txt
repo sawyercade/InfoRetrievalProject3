@@ -1,0 +1,4 @@
+bird                      2 0                          
+dog                       2 210                        
+fox                       3 70                         
+quick                     1 175                        

@@ -8,7 +8,7 @@ public class Project3 {
     final static String tokensSortedByFreqFilename = "sortedByFreq.txt";
 
     public static void main (String[] args) throws IOException, IRException {
-        run(args);
+        runTrials(args);
     }
 
     public static void run(String[] args) throws IOException, IRException{
@@ -72,14 +72,15 @@ public class Project3 {
         File[] inFiles = inDir.listFiles();
         int numFiles = inFiles.length;
         File outDir = new File(args[1]);
-        TokenCollector collector = new TokenCollector(); //stores tokens and localHashTable across documents
-        Map<Integer, String> fileNames = new HashMap<Integer, String>(); //Maps docId to filename
 
-        InvertedFileBuilder invertedFileBuilder = new InvertedFileBuilder(); //Builds the inverted file
         StatsWriter statsWriter = new StatsWriter(new File(outDir.getAbsolutePath()+"\\stats.txt"));
         Random random = new Random(System.currentTimeMillis());
         //Process each file
         for (int i = 0; i < 50; i++){
+            Map<Integer, String> fileNames = new HashMap<Integer, String>(); //Maps docId to filename
+            TokenCollector collector = new TokenCollector(); //stores tokens and localHashTable across documents
+            InvertedFileBuilder invertedFileBuilder = new InvertedFileBuilder(); //Builds the inverted file
+
             long runTime = System.currentTimeMillis();
             int fileCounter = 0;
             List<File> sampleFiles = new ArrayList<File>();
